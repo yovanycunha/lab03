@@ -2,15 +2,17 @@ package lab03;
 
 public class Produto {
 	
-	String nomeProduto;
-	String tipoProduto;
-	double precoUnitario;
+	private String nomeProduto;
+	private String tipoProduto;
+	private double precoUnitario;
+	private int qntNoEstoque;
 	
 	
-	public Produto(String nomeProduto, String tipoProduto, double precounitario) {
+	public Produto(String nomeProduto, String tipoProduto, double precoUnitario, int qntProduto) {
 		this.nomeProduto = nomeProduto;
 		this.tipoProduto = tipoProduto;
-		this.precoUnitario = precounitario;			
+		this.precoUnitario = precoUnitario;
+		this.qntNoEstoque = qntProduto;
 	}
 
 
@@ -43,6 +45,17 @@ public class Produto {
 		this.precoUnitario = precoUnitario;
 	}
 	
+	public int getQntNoEstoque() {
+		return qntNoEstoque;
+	}
 	
+	public void setQntNoEstoque(int qntNoEstoque) {
+		this.qntNoEstoque = this.qntNoEstoque - qntNoEstoque;
+	}
+	
+	@Override
+	public String toString() {
+		return nomeProduto + "(" + tipoProduto + "). RS " + precoUnitario + " Restante: " + qntNoEstoque;
+	}
 	
 }
