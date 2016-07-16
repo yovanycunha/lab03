@@ -27,7 +27,7 @@ public class Supermercado {
 		
 		Produto novoProduto = new Produto(nomeProduto, tipoProduto, precoUnitario, quantidadeProduto);
 		estoque.adicionaProdutos(novoProduto);
-		
+		totalPodeArrecadar += precoUnitario * quantidadeProduto;
 		System.out.println(quantidadeProduto + " \"" + nomeProduto + " \" cadastrado(s) com sucesso.");
 
 	}
@@ -42,7 +42,7 @@ public class Supermercado {
 			System.out.print("\nDigite a quantidade que deseja vender: ");
 			int qntVender = input.lerInteiro();
 			if(qntVender > estoque.buscaProduto(nomeProduto).getQntNoEstoque()){
-				System.out.println("Não é possível vender pois nao ha " + nomeProduto + " suficiente.");
+				System.out.println("Nao e possivel vender pois nao ha " + nomeProduto + " suficiente.");
 			}else{
 				estoque.buscaProduto(nomeProduto).setQntNoEstoque(qntVender);
 				totalArrecadado = estoque.buscaProduto(nomeProduto).getPrecoUnitario() * qntVender;
@@ -63,7 +63,7 @@ public class Supermercado {
 	
 	@Override
 	public String toString() {
-		return "Total Arrecadado: RS " + totalArrecadado;
+		return "Total Arrecadado: RS " + totalArrecadado + "\nTotal que pode ser arrecadado: RS " + totalPodeArrecadar;
 	}
 
 		
